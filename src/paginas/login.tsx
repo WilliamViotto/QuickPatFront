@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../estilo/estilo.css';
 import { Button, Input, } from "reactstrap";
 import { ChangeEvent, useContext, useState } from 'react';
+import { api } from '../api';
 
 
 
@@ -9,11 +10,11 @@ function Inicial() {
 
     const navigate = useNavigate();
 
-    const [fUser, setfuser] = useState('');
+    const [fUser, setfUser] = useState('');
     const [fSenha, setfSenha] = useState('');
 
     const handlefUserChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setfuser(e.target.value);
+        setfUser(e.target.value);
     }
 
     const handlefSenhaChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +23,16 @@ function Inicial() {
 
 
     const RealizarLogin = async () => {
-        alert('Usuario' + fUser + 'Senha' + fSenha)
+
+        let json = await api.Logar(fUser, fSenha);
+
+        if (json.userID) {
+            alert('Bem Vindo, ' + fUser);
+            navigate('/home');
+        } else {
+            alert('Usuário/Senha não encontrado, tente novamente.')
+        }
+
     }
 
     // const [PermissaoAcesso] = useState(true);

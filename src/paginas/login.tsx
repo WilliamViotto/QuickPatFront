@@ -1,7 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import '../estilo/estilo.css';
 import { Button, Input, } from "reactstrap";
-import { ChangeEvent, useContext, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { api } from '../api';
 
 
@@ -34,22 +34,6 @@ function Inicial() {
         }
 
     }
-
-    // const [PermissaoAcesso] = useState(true);
-    // const navegacao = useNavigate();
-
-    // function handleValidateLogin() {
-
-
-
-    //     // TRATAR RETORNO DA API.
-    //     if (PermissaoAcesso === true) {
-    //         navegacao("/home")
-    //     } else {
-    //         alert('Usuário Não encontrado.')
-    //     }
-    // }
-
 
 
     return (

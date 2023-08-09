@@ -111,7 +111,7 @@ export const api = {
             console.log(json);
             return json;
         }
-    },
-
+    }
 
 }
+

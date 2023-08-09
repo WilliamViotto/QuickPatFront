@@ -1,9 +1,8 @@
-import { Table } from 'reactstrap';
-import { Usuario } from '../componentes/types/usuario'
+import { Monitorar } from '../componentes/types/monitorar';
 
 type Props = {
   // Aqui devemos colocar o que deverá aparecer no monitorar
-  data: Usuario
+  data: Monitorar
 }
 
 
@@ -12,10 +11,10 @@ function MonitorarItem({ data }: Props) {
     <div>
       <table>
         <tr>
-          <th>O que quisermos que apareça </th>
-          <th>O que quisermos que apareça </th>
-          <th>O que quisermos que apareça </th>
-          <th>O que quisermos que apareça </th>
+          <th>ID Funcionário </th>
+          <th>Nome Funcionário </th>
+          <th>ID Patrimônio </th>
+          <th>Nome Patrimônio </th>
         </tr>
         <tr>
           <td>{data.nome} </td>

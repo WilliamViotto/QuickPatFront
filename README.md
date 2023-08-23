@@ -1,3 +1,10 @@
+Alunos do Grupo: 
+William Viotto
+Levi Matheus
+Hugo Silva
+Rodolfo Miranda
+
+
 
 Titulo : QuickPat
 

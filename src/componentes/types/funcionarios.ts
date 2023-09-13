@@ -1,10 +1,10 @@
 
 
 export type Funcionarios = {
-    nomecompleto: string,
-    cargo: string,
-    email: string,
-    confemail: string,
-    telefoneum: string,
-    departamento: string
+    NOME_COMPLETO: string,
+    CARGO: string,
+    EMAIL: string,
+    CONFIRMAEMAIL: string,
+    TELEFONEUM: number,
+    DEPARTAMENTO: string
 }

@@ -17,11 +17,11 @@ function FuncionarioItem({ data }: Props) {
           <th>Departamento</th>
         </tr>
         <tr>
-          <td>{data.nomecompleto}</td>
-          <td>{data.cargo}</td>
-          <td>{data.email}</td>
-          <td>{data.telefoneum}</td>
-          <td>{data.departamento}</td>
+          <td>{data.NOME_COMPLETO}</td>
+          <td>{data.CARGO}</td>
+          <td>{data.EMAIL}</td>
+          <td>{data.TELEFONEUM}</td>
+          <td>{data.DEPARTAMENTO}</td>
         </tr>
       </table>
     </div >

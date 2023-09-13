@@ -6,14 +6,14 @@ import UsuarioItem from "../itensmap/usuariomap";
 type Props =
   {
     onAdd: (
-      nome: string,
-      sobrenome: string,
-      email: string,
-      confemail: string,
-      telum: string,
-      teldois: string,
-      login: string,
-      senha: string
+      NOME: string,
+      SOBRENOME: string,
+      EMAIL: string,
+      CONFIRMAEMAIL: string,
+      TELEFONEUM: string,
+      TELEFONEDOIS: string,
+      LOGIN: string,
+      SENHA: string
     ) => void;
   }
 
@@ -77,7 +77,7 @@ function CadUsuario({ onAdd }: Props) {
 
     setLoading(true);
     try {
-      let response = await fetch("http://localhost:3010/usuarios")
+      let response = await fetch("https://quickpatbacksexta.onrender.com/usuarios")
       let json = await response.json();
 
       const dataArray = Array.isArray(json) ? json : [json];

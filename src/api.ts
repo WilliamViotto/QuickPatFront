@@ -4,19 +4,19 @@
 export const api = {
 
     InserirUsuarios: async (nome: string, sobrenome: string, email: string, confemail: string, telum: string, teldois: string, login: string, senha: string) => {
-        let response = await fetch("http://localhost:3010/usuarios/",
+        let response = await fetch("https://quickpatbacksexta.onrender.com/usuarios/",
             {
                 method: 'POST',
                 body: JSON.stringify
                     ({
-                        nome: nome,
-                        sobrenome: sobrenome,
-                        email: email,
-                        confirmaemail: confemail,
-                        telefoneum: telum,
-                        telefonedois: teldois,
-                        login: login,
-                        senha: senha,
+                        NOME: nome,
+                        SOBRENOME: sobrenome,
+                        EMAIL: email,
+                        CONFIRMAEMAIL: confemail,
+                        TELEFONEUM: telum,
+                        TELEFONEDOIS: teldois,
+                        LOGIN: login,
+                        SENHA: senha,
                     }),
                 headers: {
                     'Content-type': ' application/json'
@@ -30,17 +30,17 @@ export const api = {
     },
 
     InserirFuncionarios: async (nomecompleto: string, cargo: string, email: string, confemail: string, telefoneum: string, departamento: string) => {
-        let response = await fetch("http://localhost:3010/funcionarios/",
+        let response = await fetch("https://quickpatbacksexta.onrender.com/funcionarios/",
             {
                 method: 'POST',
                 body: JSON.stringify
                     ({
-                        nomecompleto: nomecompleto,
-                        cargo: cargo,
-                        email: email,
-                        confirmaemail: confemail,
-                        telefoneum: telefoneum,
-                        departamento: departamento
+                        NOME_COMPLETO: nomecompleto,
+                        CARGO: cargo,
+                        EMAIL: email,
+                        CONFIRMAEMAIL: confemail,
+                        TELEFONEUM: telefoneum,
+                        DEPARTAMENTO: departamento
                     }),
                 headers: {
                     'Content-type': ' application/json'
@@ -53,18 +53,18 @@ export const api = {
         return json;
     },
 
-    InserirPatrimonios: async (nome: string, modelo: string, tipo: string, grupo: string, valor: string, descricao: string) => {
-        let response = await fetch("http://localhost:3010/patrimonios/",
+    InserirPatrimonios: async (nome: string, modelo: string, tipo: string, grupo: string, valor: number, descricao: string) => {
+        let response = await fetch("https://quickpatbacksexta.onrender.com/patrimonios/",
             {
                 method: 'POST',
                 body: JSON.stringify
                     ({
-                        nome: nome,
-                        modelo: modelo,
-                        tipo: tipo,
-                        grupo: grupo,
-                        valor: valor,
-                        descricao: descricao
+                        NOME: nome,
+                        MODELO: modelo,
+                        TIPO: tipo,
+                        GRUPO: grupo,
+                        VALOR: valor,
+                        DESCRICAO: descricao
                     }),
                 headers: {
                     'Content-type': ' application/json'
@@ -82,20 +82,52 @@ export const api = {
     },
 
     CarregarUsuarioUnico: async (param: string) => {
-        let response = await fetch("http://localhost:3010/usuarios/" + param);
+        let response = await fetch("https://quickpatbacksexta.onrender.com/usuarios/" + param);
         let json = await response.json();
         return json;
     },
 
     CarregarTodosUsuarios: async () => {
-        let response = await fetch("http://localhost:3010/usuarios/")
+        let response = await fetch("https://quickpatbacksexta.onrender.com/usuarios/")
+        let json = await response.json();
+        return json;
+    },
+
+    InserirMonitorar: async (FUNCIONARIO: string, PATRIMONIO: string,) => {
+        let response = await fetch("https://quickpatbacksexta.onrender.com/movimentacao",
+            {
+                method: 'POST',
+                body: JSON.stringify
+                    ({
+                        FUNCIONARIO: FUNCIONARIO,
+                        PATRIMONIO: PATRIMONIO,
+                    }),
+                headers: {
+                    'Content-type': ' application/json'
+                }
+            }
+        );
+        let json = await response.json();
+        console.log(json);
+
+        return json;
+    },
+
+    CarregarFuncionarios: async () => {
+        let response = await fetch("https://quickpatbacksexta.onrender.com/funcionarios")
+        let json = await response.json();
+        return json;
+    },
+
+    CarregarPatrimonios: async () => {
+        let response = await fetch("https://quickpatbacksexta.onrender.com/patrimonios")
         let json = await response.json();
         return json;
     },
 
     Logar: async (username: string, password: string) => {
         {
-            let response = await fetch("http://localhost:3010/auth/login",
+            let response = await fetch("https://quickpatbacksexta.onrender.com/auth/login",
                 {
                     method: 'POST',
                     body: JSON.stringify

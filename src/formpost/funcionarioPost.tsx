@@ -6,12 +6,12 @@ import { Funcionarios } from "../componentes/types/funcionarios";
 type Props =
   {
     onAdd: (
-      nomecompleto: string,
-      cargo: string,
-      email: string,
-      confemail: string,
-      telefoneum: string,
-      departamento: string,
+      NOME_COMPLETO: string,
+      CARGO: string,
+      EMAIL: string,
+      CONFIRMAEMAIL: string,
+      TELEFONEUM: string,
+      DEPARTAMENTO: string,
     ) => void;
   }
 
@@ -67,7 +67,7 @@ function CadFuncionario({ onAdd }: Props) {
 
     setLoading(true);
     try {
-      let response = await fetch("http://localhost:3010/funcionarios")
+      let response = await fetch("https://quickpatbacksexta.onrender.com/funcionarios")
       let json = await response.json();
 
       const dataArray = Array.isArray(json) ? json : [json];

@@ -11,16 +11,16 @@ function CadastroUsuario() {
   
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
 
-  const handleAddClick = async (nome: string,
-    sobrenome: string,
-    email: string,
-    confemail: string,
-    telum: string,
-    teldois: string,
-    login: string,
-    senha: string) => {
+  const handleAddClick = async (NOME: string,
+    SOBRENOME: string,
+    EMAIL: string,
+    CONFIRMAEMAIL: string,
+    TELEFONEUM: string,
+    TELEFONEDOIS: string,
+    LOGIN: string,
+    SENHA: string) => {
      
-    let json = await api.InserirUsuarios(nome, sobrenome, email, confemail, telum, teldois, login, senha );
+    let json = await api.InserirUsuarios(NOME, SOBRENOME, EMAIL, CONFIRMAEMAIL, TELEFONEUM, TELEFONEDOIS, LOGIN, SENHA );
 
     if (json.id) {
         alert('Usuario inserido com sucesso!');

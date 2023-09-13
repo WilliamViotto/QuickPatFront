@@ -6,12 +6,12 @@ import { Patrimonio } from "../componentes/types/patrimonios";
 type Props =
   {
     onAdd: (
-      nome: string,
-      modelo: string,
-      tipo: string,
-      grupo: string,
-      valor: string,
-      descricao: string,
+      NOME: string,
+      MODELO: string,
+      TIPO: string,
+      GRUPO: string,
+      VALOR: string,
+      DESCRICAO: string,
     ) => void;
   }
 
@@ -65,7 +65,7 @@ function CadPatrimonio({ onAdd }: Props) {
 
     setLoading(true);
     try {
-      let response = await fetch("http://localhost:3010/patrimonios")
+      let response = await fetch("https://quickpatbacksexta.onrender.com/patrimonios")
       let json = await response.json();
 
       const dataArray = Array.isArray(json) ? json : [json];
@@ -99,7 +99,7 @@ function CadPatrimonio({ onAdd }: Props) {
 
           <div className='filha'>
             <label> Valor Real R$: </label>
-            <Input value={addValor} onChange={handleAddValorChange} type="text" placeholder='Digite o valor da compra' ></Input>
+            <Input value={addValor} onChange={handleAddValorChange} type="number" step="0.1" placeholder='Digite o valor da compra' ></Input>
 
             <label> Descrição: </label>
             <Input value={addDescricao} onChange={handleAddDescricaoChange} type="text" placeholder='Descreva do item'></Input>

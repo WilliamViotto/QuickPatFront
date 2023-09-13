@@ -17,10 +17,10 @@ function PatrimonioItem({ data }: Props) {
           <th>Grupo</th>
         </tr>
         <tr>
-          <td>{data.nome}</td>
-          <td>{data.modelo}</td>
-          <td>{data.tipo}</td>
-          <td>{data.grupo}</td>
+          <td>{data.NOME}</td>
+          <td>{data.MODELO}</td>
+          <td>{data.TIPO}</td>
+          <td>{data.GRUPO}</td>
         </tr>
       </table>
     </div>

@@ -9,21 +9,21 @@ function CadastroPatrimonio () {
 
   const [patrimonios, setPatrimonios] = useState<Patrimonio[]>([]);
 
-  const handleAddClick = async (nome: string,
-    modelo: string,
-    tipo: string,
-    grupo: string,
-    valor: string,
-    descricao: string,
+  const handleAddClick = async (NOME: string,
+    MODELO: string,
+    TIPO: string,
+    GRUPO: string,
+    VALOR: string,
+    DESCRICAO: string,
   ) => {
 
-    let json = await api.InserirPatrimonios(nome, modelo, tipo, grupo, valor, descricao);
+    let json = await api.InserirPatrimonios(NOME, MODELO, TIPO, GRUPO, parseFloat(VALOR), DESCRICAO);
 
     if (json.id) {
       alert('Patrimonios inserido com sucesso!');
       setPatrimonios((patrimonios) => [...patrimonios, json]);
     } else {
-      alert(json.message)
+      alert(json.message + ' VALOR TIPO:'+VALOR)
     }
   }
     

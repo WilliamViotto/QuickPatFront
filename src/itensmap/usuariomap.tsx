@@ -13,14 +13,10 @@ function UsuarioItem({ data }: Props) {
         <tr>
           <th>Nome</th>
           <th>Email</th>
-          <th>Login</th>
-          <th>Senha</th>
         </tr>
         <tr>
-          <td>{data.nome} </td>
-          <td>{data.email}</td>
-          <td>{data.login}</td>
-          <td>{data.senha}</td>
+          <td>{data.NOME} </td>
+          <td>{data.EMAIL}</td>
         </tr>
       </table>
     </div>

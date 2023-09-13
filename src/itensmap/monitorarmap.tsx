@@ -1,29 +1,21 @@
-import { Monitorar } from '../componentes/types/monitorar';
+import { Table } from 'reactstrap';
+import { Monitorando } from '../componentes/types/monitorar';
+import { Usuario } from '../componentes/types/usuario'
 
 type Props = {
   // Aqui devemos colocar o que deverá aparecer no monitorar
-  data: Monitorar
+  data: Monitorando
 }
 
 
 function MonitorarItem({ data }: Props) {
   return (
-    <div>
-      <table>
+    <>      
         <tr>
-          <th>ID Funcionário </th>
-          <th>Nome Funcionário </th>
-          <th>ID Patrimônio </th>
-          <th>Nome Patrimônio </th>
+          <td>{data.FUNCIONARIO} </td>
+          <td>{data.PATRIMONIO}</td>
         </tr>
-        <tr>
-          <td>{data.nome} </td>
-          <td>{ }</td>
-          <td>{ }</td>
-          <td>{ }</td>
-        </tr>
-      </table>
-    </div>
+    </>
   )
 }
 

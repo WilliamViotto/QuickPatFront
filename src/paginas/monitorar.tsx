@@ -1,38 +1,29 @@
 import '../estilo/estilo.css';
 import Cabecalho from '../componentes/cabecalho';
 import { useState } from 'react';
-import { Usuario } from '../componentes/types/usuario';
-import { Button, Input, Table } from 'reactstrap';
-import UsuarioItem from '../itensmap/usuariomap';
-import MonitorarItem from '../itensmap/monitorarmap';
-
+import { api } from '../api';
+import { Monitorando } from '../componentes/types/monitorar';
+import Monitoramento from '../formpost/monitorarPost';
 
 function Monitorar() {
 
-  const [usuarios, setUsuarios] = useState<Usuario[]>([]);
-
-  const [loading, setLoading] = useState(false);
+  const [monit, setMonitorar] = useState<Monitorando[]>([]);
 
 
-  const carregarUsuarios = async () => {
+  const handleAddClick = async (idfuncionario: string,
+    idpatrimonio: string,
+  ) => {
 
-    setLoading(true);
-    try {
-      let response = await fetch("https://jsonplaceholder.typicode.com/todos/")
-      let json = await response.json();
+    let json = await api.InserirMonitorar(idfuncionario, idpatrimonio);
 
-      const dataArray = Array.isArray(json) ? json : [json];
-
-
-      setLoading(false);
-      setUsuarios(dataArray);
-
-    } catch (e) {
-      alert('Falha ao carregar os históricos de movimentação')
-      setLoading(false);
-      console.error(e);
+    if (json.id) {
+      alert('Movimentação realizada com sucesso!');
+      setMonitorar((monit) => [...monit, json]);
+    } else {
+      alert(json.message)
     }
   }
+
 
   return (
     <div>
@@ -44,40 +35,22 @@ function Monitorar() {
         cabTexto5={"Monitorar"}
         cabTexto6={"Sair"}
       />
-      <div className='divcima'>
+      <Monitoramento onAdd={handleAddClick} />
 
-        <div className='divcima2'>
-          <Button color="info" onClick={carregarUsuarios}> Lista de Funcionários </Button>
-          <br />
-        </div>
-
-        <div className='divcima1'>
-          <label>Nome do Patrimônio: </label>
-          <Input type='text'></Input>
-          <label>Nome do Funcionário: </label>
-          <Input type='text'></Input>
-        </div>
-
-        <div className='divcima2'>
-          <Button color="success"> Movimentar </Button>
-        </div>
-
-        <br />
-      </div>
-
-
-
-      <div className='telamonitorar'>
-
-        {!loading &&
-          <div>
-            {usuarios.map((item, index) => (
-              <MonitorarItem data={item} />
-            ))}
-          </div>
-        }
-      </div>
+      <br />
     </div>
+
+    // {/* 
+    // <div className='telamonitorar'>
+
+    //   {!loading &&
+    //     <div>
+    //       {usuarios.map((item, index) => (
+    //         <MonitorarItem data={item} />
+    //       ))}
+    //     </div>
+    //   }
+    // </div> */}
 
   )
 }

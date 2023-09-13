@@ -1,10 +1,10 @@
 
 
 export type Patrimonio = {
-    nome: string,
-    modelo: string,
-    tipo: string,
-    grupo: string,
-    valor: string,
-    descricao: string
+    NOME: string,
+    MODELO: string,
+    TIPO: string,
+    GRUPO: string,
+    VALOR: string,
+    DESCRICAO: string
 }

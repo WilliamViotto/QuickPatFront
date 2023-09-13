@@ -10,15 +10,15 @@ function CadastroFuncionario() {
 
   const [funcionarios, setFuncionarios] = useState<Funcionarios[]>([]);
 
-  const handleAddClick = async (nomecompleto: string,
-    cargo: string,
-    email: string,
-    confemail: string,
-    telefoneum: string,
-    departamento: string,
+  const handleAddClick = async (NOME_COMPLETO: string,
+    CARGO: string,
+    EMAIL: string,
+    CONFIRMAEMAIL: string,
+    TELEFONEUM: string,
+    DEPARTAMENTO: string,
   ) => {
 
-    let json = await api.InserirFuncionarios(nomecompleto, cargo, email, confemail, telefoneum, departamento);
+    let json = await api.InserirFuncionarios(NOME_COMPLETO, CARGO, EMAIL, CONFIRMAEMAIL, TELEFONEUM, DEPARTAMENTO);
 
     if (json.id) {
       alert('Funcionário inserido com sucesso!');

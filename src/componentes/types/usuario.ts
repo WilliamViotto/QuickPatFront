@@ -1,12 +1,12 @@
 
 
 export type Usuario = {
-    nome: string;
-    sobrenome: string;
-    email: string;
-    confemail: string;
-    telum: string;
-    teldois: string;
-    login: string;
-    senha: string
+    NOME: string;
+    SOBRENOME: string;
+    EMAIL: string;
+    CONFIRMAEMAIL: string;
+    TELEFONEUM: string;
+    TELEFONEDOIS: string;
+    LOGIN: string;
+    SENHA: string
 }
